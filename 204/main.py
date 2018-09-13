@@ -16,11 +16,7 @@ class Solution:
 #                while(num<=n):
 #                    matrix[num] = False
 #                    num *= x
-
-#        counts = 0
-#        for x in matrix[:n]:
-#            if x: counts += 1
-#        return counts
+#        return sum(matrix[:n])
 # method(2) 大神解法
         if n < 2: return 0
         matrix = [0,0] + [1]*(n-2)
