@@ -27,15 +27,12 @@ public:
         return s;
 /* 递归(变量很少)
         ListNode* temp=new ListNode(0);
-        if(!head){
-            return NULL;
-        }
-        if(!head->next){
+        if(!head || !head->next) {
             return head;
         }
-        temp=head->next;
-        head->next=swapPairs(temp->next);
-        temp->next=head;
+        temp = head->next;
+        head->next = swapPairs(temp->next);
+        temp->next = head;
         return temp;
 */
     }
