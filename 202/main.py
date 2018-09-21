@@ -5,13 +5,11 @@ class Solution:
         :rtype: bool
         """
         temp = set()
-        
-        nums = tuple(map(int,str(n)))
-        while(nums not in temp):
-            temp.add(nums)
-            n = sum([x**2 for x in nums])
+
+        while(n not in temp):
+            temp.add(n)
+            n = sum([int(x)**2 for x in str(n)])
             if n==1:
                 return True
-            nums = tuple(map(int,str(n)))
 
         return False
