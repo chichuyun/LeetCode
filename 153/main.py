@@ -13,13 +13,14 @@ class Solution:
 
         while(left<=right):
             mid = (right + left)//2
-            if nums[mid] >= nums[right] and nums[mid] <= nums[left]:
-                return min(nums[mid], nums[right])
-            elif nums[mid] >= nums[right] and nums[mid] >= nums[left]:
-                left = mid
-            elif nums[mid] <= nums[right] and nums[mid] <= nums[left]:
+            if nums[mid] >= nums[right]:
+                if nums[mid] <= nums[left]:
+                    return min(nums[mid], nums[right])
+                else:
+                    left = mid
+            elif nums[mid] <= nums[left]:
                 right = mid
-                
+
 # method(2) 更简洁
 '''
         begin = 0
