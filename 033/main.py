@@ -13,12 +13,12 @@ class Solution:
             if nums[mid] == target:       # 二分查找
                 return mid
             if nums[left] <= nums[mid]:   # 左边有序
-                if nums[left]<= target<= nums[mid]:
+                if nums[left] <= target <= nums[mid]:  # 最左边
                     right = mid - 1
                 else:
                     left = mid + 1
             else:                         # 右边有序
-                if nums[mid]<= target <=nums[right]:
+                if nums[mid] <= target <= nums[right]: # 最右边
                     left = mid + 1
                 else:
                     right = mid - 1 
