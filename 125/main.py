@@ -5,20 +5,16 @@ class Solution:
         :rtype: bool
         """
 # method(1) 一个一个对比
-        ascii_set = set(list(range(ord('0'),ord('9')+1)) + \
-                        list(range(ord('a'),ord('z')+1)))
-        
-        s = s.lower()
         i = 0
         j = len(s) - 1
         while(i <= j):
-            if ord(s[i]) not in ascii_set:
+            if not s[i].isalnum():
                 i += 1
                 continue
-            if ord(s[j]) not in ascii_set:
+            if not s[j].isalnum():
                 j -= 1
                 continue
-            if s[i] != s[j]:
+            if s[i].lower() != s[j].lower():
                 return False
             i += 1
             j -= 1
