@@ -5,7 +5,7 @@ class Solution:
         :type n: int
         :rtype: int
         """
-# method(1) 这里可能会导致整数溢出，但是可以AC，但是似乎必须要调用大整数库
+# method(1) 这里可能会导致整数溢出，但是可以AC
         path = n + m - 2
         c = min(n - 1, m - 1)
         res = 1
