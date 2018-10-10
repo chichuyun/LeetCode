@@ -13,21 +13,13 @@ class Solution:
         """
         if root is None: return []
         temp = [root]
+        
         res = list()
-        flag = 0
-        for r in temp:
-            if r.left or r.right:
-                flag = 1
-                break
-            else:
-                return [[root.val]]
-        while(flag):
-            flag = 0
+        while(temp):
             res.append([])
             temp_r = temp.copy()
             temp = list()
             for r in temp_r:
-                flag = 1
                 res[-1].append(r.val)
                 if r.left:
                     temp.append(r.left)
