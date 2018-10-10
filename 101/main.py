@@ -17,7 +17,7 @@ class Solution:
     def compare(self, left, right):
         if not left and not right:
             return True
-        elif not left or not left:
+        elif not left or not right:
             return False
         if left.val == right.val:
             return self.compare(left.left, right.right) and \
@@ -29,7 +29,7 @@ class Solution:
         if root is None: return True
         if not root.left and not root.right:
             return True
-        elif not root.left or not root.left:
+        elif not root.left or not root.right:
             return False
         
         templ, tempr = [root.left], [root.right]
