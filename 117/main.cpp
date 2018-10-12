@@ -21,7 +21,7 @@ public:
         if(root->right) {
             search(root->right, root->next);
         }
-        connect(root->right);
+        connect(root->right); // 这行和下一行不能互换位置
         connect(root->left);
     }
     
