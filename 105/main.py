@@ -12,8 +12,7 @@ class Solution:
         :type inorder: List[int]
         :rtype: TreeNode
         """
-# method(2) 这里效率比较低,因为传递了很多list,而不是list的指标
-'''
+
         if not preorder:
             return None
         
@@ -23,4 +22,3 @@ class Solution:
         tree.left = self.buildTree(preorder[1:index+1], inorder[:index])
         tree.right = self.buildTree(preorder[index+1:], inorder[index+1:])
         return tree
-'''
