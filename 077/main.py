@@ -5,7 +5,7 @@ class Solution:
         :type k: int
         :rtype: List[List[int]]
         """
-# method(1) 自己瞎想的方法,不过效率挺高
+# method(1) (1)和(3)不太易懂,但是效率挺高
         if k == 0: return [[]]
         
         res = list()
