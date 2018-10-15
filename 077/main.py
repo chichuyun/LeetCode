@@ -8,11 +8,12 @@ class Solution:
 # method(1) (1)和(3)不太易懂,但是效率挺高
         if k == 0: return [[]]
         
+        nums = list(range(1,n+1))
         res = list()
         index = [0]*k
         c = -1
         while index[0] < n-k:
-            res.append([i+j+1 for j, i in enumerate(index)])
+            res.append([nums[i+j] for j, i in enumerate(index)])
             if index[c] == n-k:   # 最大可能出现的数字
                 c -= 1
                 while index[c] == n-k:
