@@ -6,7 +6,7 @@ class Solution:
         """
 # method(1) 二分查找
         left, right = 0, x
-        while(left < right):
+        while(left <= right):
             mid = left + (right - left)//2
             if mid*mid <= x < (mid+1)*(mid+1) :
                 return mid
@@ -14,7 +14,7 @@ class Solution:
                 left = mid + 1
             else:
                 right = mid - 1
-        return x
+        return -1
 # method(2) 迭代求平方根,显然自己写的效率不高
 '''
         if x==0: return 0
