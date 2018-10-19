@@ -14,7 +14,7 @@ class Solution:
                 left = mid + 1
             else:
                 right = mid - 1
-        return -1
+        return x
 # method(2) 迭代求平方根,显然自己写的效率不高
 '''
         if x==0: return 0
