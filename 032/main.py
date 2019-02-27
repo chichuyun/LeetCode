@@ -40,7 +40,7 @@ class Solution:
                     if stack:
                         l = i - stack[-1]
                     else:
-                        l = i-start
+                        l = i - start
                     if l > maxlen:
                         maxlen = l
                 else:
