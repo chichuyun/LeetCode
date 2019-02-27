@@ -8,7 +8,7 @@ class Solution:
                 count += 1
                 if len(num) <= count:
                     num.append(0)
-            elif ss == ')':
+            else:
                 if count>0:
                     count -= 1
                     num[count] += 1
