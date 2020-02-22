@@ -35,5 +35,14 @@ public:
         temp->next = head;
         return temp;
 */
+/*
+        if(!head || !head->next)
+            return head;
+        ListNode* right = swapPairs(head->next->next);
+        ListNode* left = head->next;
+        left->next = head;
+        head->next = right;
+        return left;
+*/
     }
 };
