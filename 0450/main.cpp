@@ -36,9 +36,6 @@ public:
                 return root; 
             }
         }
-        cout<<"p: "<<p->val<<endl;
-        cout<<"k: "<<k->val<<endl;
-        cout<<"f: "<<flag<<endl;
         if(p->right && p->left) {
             t = p;
             k = p;
