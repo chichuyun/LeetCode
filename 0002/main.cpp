@@ -14,8 +14,8 @@ public:
         while(p!=nullptr || q!=nullptr) {
             t1=p!=nullptr?p->val:0;
             t2=q!=nullptr?q->val:0;
-            temp = t1 + t2 + con;
-            if(temp >= 10) {
+            temp = t1 + t2 + con;  // con = temp>=10 ? 1 : 0;
+            if(temp >= 10) {       // temp = temp%10;
                 t->next = new ListNode(temp-10);
                 con = 1;
             } else {
