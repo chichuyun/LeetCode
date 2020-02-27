@@ -22,7 +22,8 @@ public:
                 c->prev = n;
                 n->child = nullptr;
                 p = flatten(c);
-                while(p && p->next) p = p->next;
+                // we also can return the end of child to save time.
+                while(p && p->next) p = p->next; 
                 p->next = t;
                 if(t) t->prev = p;
             } else {
