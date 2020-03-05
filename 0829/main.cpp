@@ -10,9 +10,9 @@ public:
         }
         return res;
 /*
-        int count = 0;
-        for(int i = 1;i<=N;i++){
-            count+=(N%i==0?1:0);
+        int count=0;
+        for(int i=1;i<=N;i++){
+            count += N%i==0 ? 1 : 0;
             N=N-i;
         }
         return count;
