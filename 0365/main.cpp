@@ -1,17 +1,9 @@
 class Solution {
 public:
     bool canMeasureWater(int x, int y, int z) {
-        if(x==z || y==z || x+y==z) return true;
-        if(x+y<z) return false;
+        if (x+y < z) return false;
+        if (x==0 || y==0) return z==0 || x+y==z;
         if(x>y) swap(x,y);
-        if(x==0) {
-            if(y==z) {
-                return true;
-            } else {
-                return false;
-            }
-        }
-        unordered_set<int> nums;
 
         int n=y, base=0;   // base=0 and base=x are same.
         while(base!=x) {
@@ -20,5 +12,8 @@ public:
             n = y - base;
         }
         return false;
+
+//      return z % gcd(x, y) == 0;
+
     }
 };
