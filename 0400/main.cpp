@@ -11,7 +11,7 @@ public:
         }
         int c = i - k%i;
         if(c==i) c = 0;
-        n = pow(10,i-1) + k/i - (k%i==0);
+        n = pow(10,i-1) + (k-1)/i;
         while(c) {
             n /= 10;
             --c;
