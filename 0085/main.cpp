@@ -10,7 +10,7 @@ public:
                 if(matrix[i-1][j-1]=='1') {
                     col[i][j] = col[i][j-1] + 1;
                     num = col[i][j];
-                    for(int k=i;k>0;--k) {
+                    for(int k=i;k>0 && matrix[k-1][j-1]=='1';--k) {
                         num = min(num, col[k][j]);
                         res = max(res, num*(i-k+1));
                     }
