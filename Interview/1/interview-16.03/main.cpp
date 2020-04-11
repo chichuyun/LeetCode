@@ -12,20 +12,16 @@ public:
         if(base == 0) {   // parallel
             vector<pair<int,int>> xy;
             if(A1*xs2 + B1*ys2 + C1 == 0) {
-                if((xs1-xs1)*(xs1-xe1)<=0 && (xs1-xs2)*(xs1-xe2)<=0 &&
-                   (ys1-ys1)*(ys1-ye1)<=0 && (ys1-ys2)*(ys1-ye2)<=0) {
+                if((xs1-xs2)*(xs1-xe2)<=0 && (ys1-ys2)*(ys1-ye2)<=0) {
                     xy.emplace_back(xs1, ys1);
                 }
-                if((xs2-xs1)*(xs2-xe1)<=0 && (xs2-xs2)*(xs2-xe2)<=0 &&
-                   (ys2-ys1)*(ys2-ye1)<=0 && (ys2-ys2)*(ys2-ye2)<=0) {
+                if((xs2-xs1)*(xs2-xe1)<=0 && (ys2-ys1)*(ys2-ye1)<=0) {
                     xy.emplace_back(xs2, ys2);
                 }
-                if((xe1-xs1)*(xe1-xe1)<=0 && (xe1-xs2)*(xe1-xe2)<=0 &&
-                   (ye1-ys1)*(ye1-ye1)<=0 && (ye1-ys2)*(ye1-ye2)<=0) {
+                if((xe1-xs2)*(xe1-xe2)<=0 && (ye1-ys2)*(ye1-ye2)<=0) {
                     xy.emplace_back(xe1, ye1);
                 }
-                if((xe2-xs1)*(xe2-xe1)<=0 && (xe2-xs2)*(xe2-xe2)<=0 &&
-                   (ye2-ys1)*(ye2-ye1)<=0 && (ye2-ys2)*(ye2-ye2)<=0) {
+                if((xe2-xs1)*(xe2-xe1)<=0 && (ye2-ys1)*(ye2-ye1)<=0) {
                     xy.emplace_back(xe2, ye2);
                 }
                 if(!xy.empty()) {
