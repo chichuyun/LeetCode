@@ -38,7 +38,6 @@ public:
                 } else if(nums[num].second) {
                     nums[num].first += count0;
                 }
-                cout<<num.first<<"  "<<num.second<<endl;
                 j = n;
             }
             for(auto &s : sets) nums[s].second = 0;
@@ -46,7 +45,6 @@ public:
         }
         for(auto &p : nums) {
             count = max(count, p.second.first);
-            cout<<p.first.first<<"  "<<p.first.second<<"  "<<p.second.first<<endl;
         }
         return count;
     }
