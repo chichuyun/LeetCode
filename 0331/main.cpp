@@ -1,7 +1,7 @@
 class Solution {
 public:
     bool isValidSerialization(string preorder) {
-        int nodes = 0, i = 0, len = preorder.size();
+        int nodes = 1, i = 0, len = preorder.size();
         while(i < len) {
             if(preorder[i]=='#') {
                 --nodes;
@@ -11,8 +11,8 @@ public:
                 ++i;
                 ++nodes;
             }
-            if(nodes==-1 && i+1<len) return false;
+            if(nodes==0 && i+1<len) return false;
         }
-        return nodes == -1;
+        return nodes == 0;
     }
 };
