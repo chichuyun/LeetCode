@@ -11,11 +11,7 @@ impl Solution {
             if let Some(&m) = pres.get(&(pre-k)) {
                 count += m;
             }
-            if let Some(&m) = pres.get(&pre) {
-                pres.insert(pre, m+1);
-            } else {
-                pres.insert(pre, 1);
-            }
+            pres.entry(pre).and_modify(|m| *m += 1).or_insert(1);
         }
         return count;
     }
