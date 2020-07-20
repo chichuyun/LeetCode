@@ -6,18 +6,17 @@ public:
         sort(g.begin(), g.end());
         sort(s.begin(), s.end());
 
-        int j = 0;
+        int i = 0, j = 0;
         int count = 0;
 
-        for(int i=0; i<s.size(); ++i) {
-            if(j < g.size() && s[i] < g[j]) continue;
-            while(j < g.size()) {
-                if(g[j] <= s[i]) {
-                    ++count;
-                    ++j;
-                    break;
-                }
+        while(j < g.size()) {
+            while(i < s.size() && s[i] < g[j]) ++i;
+            if(i < s.size()) {
                 ++j;
+                ++i;
+                ++count;
+            } else {
+                break;
             }
         }
 
