@@ -19,8 +19,7 @@ public:
         }
 
         vector<int> dp(len+1);
-        for(int i=1; i<=len; ++i) dp[i] = i;
-        dp[0] = -1;
+        for(int i=0; i<=len; ++i) dp[i] = i - 1;
         for(int i=0; i<len; ++i) {
             for(int j=0; j<=i; ++j) {
                 if(checks[j][i]) {
