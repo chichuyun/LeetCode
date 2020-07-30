@@ -1,35 +1,29 @@
 class Solution {
 public:
     int numSquares(int n) {
-        queue<int> nums;
-        int max=(int)sqrt(n);
-        int count=0, num, c1, c2;
+        int count=0, num, m;
         
+        queue<int> nums;
         nums.push(n);
-        c2 = 1;
-        while(true) {
+        while(true) { // BFS
             ++count;
-            c1 = c2;
-            c2 = 0;
-            while(c1) {
+            m = nums.size();
+            while(m--) {
                 n = nums.front();
                 nums.pop();
-                for(int i=1;i<=max;++i) {
+                for(int i=1;i*i<=n;++i) {
                     num = n - i*i;
                     if(num==0) {
                         return count;
-                    } else if(num>0) {
-                        ++c2;
-                        nums.push(num);
                     } else {
-                        break;
+                        nums.push(num);
                     }
                 }
-                --c1;
             }
-
         }
         return count;
+    }
+};
 /* A positive integer can definitely be expressed as the sum of the squares of four or less numbers.
         while (n % 4 == 0) n /= 4;
         if (n % 8 == 7) return 4;
