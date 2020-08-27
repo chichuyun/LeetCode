@@ -1,22 +1,38 @@
 class Solution {
 private:
-    unordered_map<int,int> nums;
-    int dp(vector<int>& coins, int amount) {
-        if(amount<0) return -1;   // this way does not work
-        if(amount==0) return 0;   // at least have one
-        if(nums.find(amount)!=nums.end()) return nums[amount];
-        
-        int minCount=INT_MAX;
-        for(int coin : coins) {
-            int num = dp(coins,amount-coin);
-            if(num>=0) minCount = min(minCount, num);
+    unordered_map<string, vector<string>> adjs;
+    unordered_map<string, unordered_map<string, int>> indegree;
+    vector<string> res;
+    int total;
+
+    bool dfs(string str, int count) {
+        if(count == total) {
+            return true;
+        } else {
+            for(auto& s : adjs[str]) {
+                if(indegree[str][s]!=0) {
+                    indegree[str][s]--;
+                    res.push_back(s);
+                    if(dfs(s, count+1)) return true;
+                    indegree[str][s]++;
+                    res.pop_back();
+                }
+            }
         }
-        nums[amount] = minCount==INT_MAX ? -1 : minCount+1;
-        return nums[amount];
+        return false;
     }
 public:
-    int coinChange(vector<int>& coins, int amount) {
-        if(amount==0) return 0;
-        return dp(coins, amount);
+    vector<string> findItinerary(vector<vector<string>>& tickets) {
+        for(auto& ticket : tickets) {
+            adjs[ticket[0]].push_back(ticket[1]);
+            indegree[ticket[0]][ticket[1]]++;
+        }
+        for(auto& adj : adjs) sort(adj.second.begin(), adj.second.end());
+        total = tickets.size();
+        
+        res.push_back("JFK");
+        dfs("JFK", 0);
+
+        return res;
     }
 };
