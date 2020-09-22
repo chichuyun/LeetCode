@@ -1,6 +1,8 @@
-vector<int> point;
+using namespace std::placeholders;
+
 class Solution {
 private:
+    vector<int> point;
     static int _distance(vector<int>& p, vector<int>& q) {
         return (p[0] - q[0])*(p[0] - q[0]) + 
                (p[1] - q[1])*(p[1] - q[1]);
@@ -13,7 +15,7 @@ private:
                (q[1] - p[1])*(r[0] - q[0]);
     }
 
-    static bool _func_l(vector<int>& p, vector<int>& q) {
+    static bool _func_l(vector<int>& p, vector<int>& q, vector<int>& point) {
         int cross = _cross(point, p, q);
         if(cross != 0) return cross > 0;
         if(p[0] > point[0]) {
@@ -23,7 +25,7 @@ private:
         }
     }
 
-    static bool _func_r(vector<int>& p, vector<int>& q) {
+    static bool _func_r(vector<int>& p, vector<int>& q, vector<int>& point) {
         int cross = _cross(point, p, q);
         if(cross != 0) return cross > 0;
         if(p[0] >= point[0]) {
@@ -50,11 +52,14 @@ public:
             }
         }
         
+        auto __func_r = bind(_func_r, _1, _2, point);
+        auto __func_l = bind(_func_l, _1, _2, point);
+
         swap(points[0], points[index]);  // move point to points[0]
         if(point[0] == right) {
-            sort(points.begin()+1, points.end(), _func_r);
+            sort(points.begin()+1, points.end(), __func_r);
         } else {
-            sort(points.begin()+1, points.end(), _func_l);
+            sort(points.begin()+1, points.end(), __func_l);
         }
 
         int cross;
