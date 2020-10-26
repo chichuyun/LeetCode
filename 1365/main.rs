@@ -19,5 +19,10 @@ impl Solution {
         }
 
         res
+
+       // let mut counts = vec![0; 102]; // 0
+       // nums.iter().for_each(|&n| counts[1 + n as usize] += 1);
+       // (1..counts.len()).for_each(|n| counts[n] += counts[n-1]);
+       // nums.iter().map(|&n| counts[n as usize]).collect() // map is lazy evaluation
     }
 }
